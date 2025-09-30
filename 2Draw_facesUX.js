@@ -48,8 +48,8 @@ function checkIfMouthOpen(face) {
 
   let upperLip = face.keypoints[13]
   let lowerLip = face.keypoints[14]
-  // ellipse(lowerLip.x,lowerLip.y,20)
-  // ellipse(upperLip.x,upperLip.y,20)
+  ellipse(lowerLip.x,lowerLip.y,20)
+  ellipse(upperLip.x,upperLip.y,20)
 
   let d = dist(upperLip.x, upperLip.y, lowerLip.x, lowerLip.y);
   //console.log(d)

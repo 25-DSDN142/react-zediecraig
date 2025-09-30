@@ -24,9 +24,21 @@ function drawInteraction(faces, hands) {
     /*
     Start drawing on the hands here
     */
-
-    fill(225, 225, 0);
-    ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
+drawingContext.shadowBlur = 200;
+drawingContext.shadowColor = color(255, 221, 171);
+strokeWeight(0)
+    fill(250, 198, 135);
+    ellipse(indexFingerTipX, indexFingerTipY, 300, 300);
+        fill(250, 198, 125);
+    ellipse(indexFingerTipX, indexFingerTipY, 250, 250);
+     fill(250, 198, 125);
+    ellipse(indexFingerTipX, indexFingerTipY, 200, 200);
+     fill(250, 198, 125);
+    ellipse(indexFingerTipX, indexFingerTipY, 150, 150);
+     fill(250, 198, 125);
+    ellipse(indexFingerTipX, indexFingerTipY, 100, 100);
+     fill(250, 198, 125);
+    ellipse(indexFingerTipX, indexFingerTipY, 50, 50);
 
     // drawPoints(hand)
 
