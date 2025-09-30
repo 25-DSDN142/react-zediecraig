@@ -1,34 +1,25 @@
+
+// CAT ONE
 let eyebrow;
 let head;
-let sun;
 let scene;
 let nose;
 let righteyebrow;
 let lefteyebrow;
 
+// CAT TWO
 let head2;
 let scene2;
+let nose2;
 
-// function keyTyped(){
-// if (key === '1'){
-// currentBackground = starbackground;
-// currentImage = starImage;
-// }
-// else if (key == '2'){
-//   currentBackground = Heartbackground;
-//   currentImage = heartImage = heartImage;
-// }
-// else if (key === '3'){
-//   currentBackground = Cloudbackground;
-//   currentImage = cloudImage;
-// }
+// CAT THREE
+let head3;
+let nose3;
+let scene3;
 
-// else if (key ==='4'){
-//   currentBackground = Circlebackground;
-//   currentImage = circleImage;
-// }
+let isMouthOpen = false;
 
-// }
+
 
 
 
@@ -38,7 +29,7 @@ let scene2;
 /* load images here */
 function prepareInteraction() {
 
-  //cat one 
+  // CAT ONE
   head = loadImage('/images/face.png');
   scene = loadImage('/images/background.png');
   nose = loadImage('/images/nose.png');
@@ -47,10 +38,23 @@ function prepareInteraction() {
 
 
 
-  // cat two 
+  // CAT TWO 
   head2 = loadImage('/images/face2.png');
   scene2 = loadImage('/images/backround2.png');
+  nose2 = loadImage('/images/nose2.png');
+
+  // CAT THREE
+  head3 = loadImage('/images/face3.png');
+  nose3 = loadImage('/images/nose3.png');
+  scene3 = loadImage('/images/background3.png');
+
+  //   if (d < 10) {
+  //   isMouthOpen = false;
+  // } else {
+  //   isMouthOpen = true;
+
 }
+
 
 function drawInteraction(faces, hands) {
 
@@ -119,14 +123,13 @@ function drawInteraction(faces, hands) {
 strokeWeight(0)
 stroke(0)
 
-
+// CAT ONE
 if (key === 'a'){
-    //Cat one
 
-image(scene,0, 0)
+  image(scene,0, 0)
 push();
 imageMode(CENTER)
-//body
+//BODY
    fill(186, 142, 93)
     ellipse(faceCenterX, faceCenterY+400, faceWidth*2.0, faceheight*2.10);
 
@@ -137,7 +140,7 @@ imageMode(CENTER)
     ellipse(faceCenterX, faceCenterY+400, faceWidth*1.2, faceheight*1);
 
    
-//head
+//HEAD
 image(head,faceCenterX, faceCenterY-50,700,500)
 
 strokeWeight(0)
@@ -145,141 +148,251 @@ stroke(0)
 
 //EYES
 stroke(0)
-// white part shadow
+// WHITE PART SHADOW
    fill(227, 208, 152)
     ellipse(leftEyeCenterX+30, leftEyeCenterY+30, leftEyeWidth*2.5, leftEyeHeight*6.5);
     ellipse(rightEyeCenterX-50, rightEyeCenterY+30, rightEyeWidth*2.5, rightEyeHeight*6.5);
 
-// white part
+// WHITE PART
    fill(245, 231, 186)
     ellipse(leftEyeCenterX+30, leftEyeCenterY+30, leftEyeWidth*2.5, leftEyeHeight*5.5);
     ellipse(rightEyeCenterX-50, rightEyeCenterY+30, rightEyeWidth*2.5, rightEyeHeight*5.5);
 
- //coloured eyes shadow
+ // COLOURED EYES SHADOW
    fill(99, 69, 36)
     ellipse(leftEyeCenterX+30, leftEyeCenterY+30, leftEyeWidth*1.5, leftEyeHeight*4);
     ellipse(rightEyeCenterX-50, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*4);
 
-//coloured eyes
+// COLOURED EYES
    fill(122, 87, 48)
     ellipse(leftEyeCenterX+30, leftEyeCenterY+30, leftEyeWidth*1.5, leftEyeHeight*3);
     ellipse(rightEyeCenterX-50, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*3);
 
-
-
-// black pupil
+// BLACK PUPIL
     fill(0);
     // fill(get(leftEyeCenterX, leftEyeCenterY))
     ellipse(leftEyeCenterX+30, leftEyeCenterY+30, leftEyeWidth/1.5, leftEyeHeight*2);
     ellipse(rightEyeCenterX-50, rightEyeCenterY+30, rightEyeWidth/1.5, rightEyeHeight*2);
 
-
-
-// white speck
+// WHITE SPECK
       fill(255);
     // fill(get(leftEyeCenterX, leftEyeCenterY))
     ellipse(leftEyeCenterX+10, leftEyeCenterY+20, leftEyeWidth/2, leftEyeHeight);
     ellipse(rightEyeCenterX-30, rightEyeCenterY+20, rightEyeWidth/2, rightEyeHeight);
 
-
-//nose 
-image(nose, noseTipX, noseTipY+10, 150, 100);
+//NOSE 
+image(nose, noseTipX, noseTipY+50, 150, 150);
 
 
 // eyebrows
 image(lefteyebrow,rightEyebrowCenterX-70, rightEyebrowCenterY)
 image(righteyebrow,leftEyebrowCenterX+40, leftEyebrowCenterY)
 
+//  checkIfMouthOpen(face);
+//     if (isMouthOpen) {
+//       text("meow", face.keypoints[287].x, face.keypoints[287].y)
+//     }
+
 }
 
+// CAT TWO
 if (key === 's'){
-    //Cat two
 
 image(scene2,0, 0,1280,720)
 push();
 imageMode(CENTER)
 
-//body
-   fill(80,80,80)
-    ellipse(faceCenterX, faceCenterY+400, faceWidth*2.2, faceheight*2.10);
+//BODY
 
-   fill(90, 90, 90)
-    ellipse(faceCenterX, faceCenterY+400, faceWidth*2.1, faceheight*2);
-
- fill(210,210,210)
-    ellipse(faceCenterX, faceCenterY+400, faceWidth, faceheight);
+//BODY SHADOW
+  fill(80,80,80)
+ellipse(faceCenterX, faceCenterY+400, faceWidth*2.2, faceheight*2.10);
+//MAIN BODY
+  fill(90, 90, 90)
+ellipse(faceCenterX, faceCenterY+400, faceWidth*2.1, faceheight*2);
+ // LIGHT PART
+  fill(210,210,210)
+ellipse(faceCenterX, faceCenterY+400, faceWidth, faceheight);
 
    
-//head
+//HEAD
 image(head2,faceCenterX, faceCenterY-50,700,500)
 
 strokeWeight(0)
 stroke(0)
-pop();
+// pop();
+
+//EYES
+stroke(0)
+// WHITE PART SHADOW
+  fill(230,230,225)
+arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth*2, leftEyeHeight*6, 0, PI);
+arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth*2, rightEyeHeight*6, 0, PI);
+
+// WHITE PART
+  fill(245, 245, 230)
+arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth*1.5, leftEyeHeight*5.5, 0, PI);
+arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth*1.5, rightEyeHeight*5.5, 0, PI);
+
+noStroke()
+//COLOURED EYE SHADOW
+  fill(66, 140, 66)
+arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth*1.3, leftEyeHeight*4, 0, PI);
+arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth*1.3, rightEyeHeight*4, 0, PI);
+
+//COLOURED EYES
+  fill(80, 163, 80)
+arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight*3.5, 0, PI);
+arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth, rightEyeHeight*3.5, 0, PI);
+
+// BLACK PUPIL
+  fill(0);
+arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth/1.5, leftEyeHeight*3, 0, PI);
+arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth/1.5, rightEyeHeight*3, 0, PI);
+
+// WHITE SPECK
+fill(255,120);
+ellipse(leftEyeCenterX+10, leftEyeCenterY+10, leftEyeWidth/2, leftEyeHeight);
+ellipse(rightEyeCenterX-30, rightEyeCenterY+15, rightEyeWidth/2, rightEyeHeight);
+
+//NOSE 
+image(nose2, noseTipX-80, noseTipY+10, 150, 100);
+
+
+}
+
+//CAT THREE
+if (key === 'd'){
+
+image(scene3,0,0)
+push();
+imageMode(CENTER)
+//BODY
+   fill(220)
+    ellipse(faceCenterX, faceCenterY+400, faceWidth*2.0, faceheight*2.10);
+
+   fill(245)
+    ellipse(faceCenterX, faceCenterY+400, faceWidth*1.9, faceheight*2);
+
+   
+//HEAd
+image(head3,faceCenterX, faceCenterY-50,700,500)
+
+strokeWeight(0)
+stroke(0)
 
 //EYES
 stroke(0)
 // white part shadow
-   fill(230,230,225)
-  arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth*2, leftEyeHeight*6, 0, PI);
-  arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth*2, rightEyeHeight*6, 0, PI);
-
-
+   fill(221, 233, 237)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.5, leftEyeHeight*5.5);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*5.5);
 
 // white part
-   fill(245, 245, 230)
-  arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth*1.5, leftEyeHeight*5.5, 0, PI);
-  arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth*1.5, rightEyeHeight*5.5, 0, PI);
+   fill(237, 250, 255)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.5, leftEyeHeight*5);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*5);
 
-  noStroke()
  //coloured eyes shadow
-   fill(66, 140, 66)
- arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth*1.3, leftEyeHeight*4, 0, PI);
-arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth*1.3, rightEyeHeight*4, 0, PI);
+   fill(78, 169, 204)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.1, leftEyeHeight*3);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.1, rightEyeHeight*3);
 
 //coloured eyes
-   fill(80, 163, 80)
-arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight*3.5, 0, PI);
-arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth, rightEyeHeight*3.5, 0, PI);
+   fill(89, 185, 222)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1, leftEyeHeight*2.5);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1, rightEyeHeight*2.5);
 
-// // black pupil
+// black pupil
     fill(0);
-arc(leftEyeCenterX, leftEyeCenterY, leftEyeWidth/1.5, leftEyeHeight*3, 0, PI);
-arc(rightEyeCenterX-40, rightEyeCenterY+5, rightEyeWidth/1.5, rightEyeHeight*3, 0, PI);
-
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth/1.5, leftEyeHeight*2);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth/1.5, rightEyeHeight*2);
 
 // white speck
-      fill(255,120);
-    ellipse(leftEyeCenterX+10, leftEyeCenterY+10, leftEyeWidth/2, leftEyeHeight);
-    ellipse(rightEyeCenterX-30, rightEyeCenterY+15, rightEyeWidth/2, rightEyeHeight);
-
+      fill(255,140);
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+    ellipse(leftEyeCenterX, leftEyeCenterY+20, leftEyeWidth/2, leftEyeHeight);
+    ellipse(rightEyeCenterX-10, rightEyeCenterY+20, rightEyeWidth/2, rightEyeHeight);
 
 //nose 
-image(nose, noseTipX, noseTipY+10, 150, 100);
+image(nose3, noseTipX, noseTipY+50, 150, 150);
 
+//  checkIfMouthOpen(face);
+//     if (isMouthOpen) {
+//       text("meow", face.keypoints[287].x, face.keypoints[287].y)
+//     }
 
-// eyebrows
-image(lefteyebrow,rightEyebrowCenterX-70, rightEyebrowCenterY)
-image(righteyebrow,leftEyebrowCenterX+40, leftEyebrowCenterY)
 }
 
 
 
+//CAT THREE
+if (key === 'f'){
 
-    // drawPoints(face.leftEye);
-    // drawPoints(face.leftEyebrow);
-    // drawPoints(face.lips);
-    // drawPoints(face.rightEye);
-    // drawPoints(face.rightEyebrow);
+image(scene3,0,0)
+push();
+imageMode(CENTER)
+//BODY
+   fill(220)
+    ellipse(faceCenterX, faceCenterY+400, faceWidth*2.0, faceheight*2.10);
 
-    // drawX(rightEyeCenterX,rightEyeCenterY);
-    // drawX(leftEyeCenterX,leftEyeCenterY);
+   fill(245)
+    ellipse(faceCenterX, faceCenterY+400, faceWidth*1.9, faceheight*2);
+
+   
+//HEAd
+image(head3,faceCenterX, faceCenterY-50,700,500)
+
+strokeWeight(0)
+stroke(0)
+
+//EYES
+stroke(0)
+// white part shadow
+   fill(221, 233, 237)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.5, leftEyeHeight*5.5);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*5.5);
+
+// white part
+   fill(237, 250, 255)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.5, leftEyeHeight*5);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*5);
+
+ //coloured eyes shadow
+   fill(78, 169, 204)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.1, leftEyeHeight*3);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.1, rightEyeHeight*3);
+
+//coloured eyes
+   fill(89, 185, 222)
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1, leftEyeHeight*2.5);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1, rightEyeHeight*2.5);
+
+// black pupil
+    fill(0);
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+    ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth/1.5, leftEyeHeight*2);
+    ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth/1.5, rightEyeHeight*2);
+
+// white speck
+      fill(255,140);
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+    ellipse(leftEyeCenterX, leftEyeCenterY+20, leftEyeWidth/2, leftEyeHeight);
+    ellipse(rightEyeCenterX-10, rightEyeCenterY+20, rightEyeWidth/2, rightEyeHeight);
+
+//nose 
+image(nose3, noseTipX, noseTipY+50, 150, 150);
+
+//  checkIfMouthOpen(face);
+//     if (isMouthOpen) {
+//       text("meow", face.keypoints[287].x, face.keypoints[287].y)
+//     }
+
+}
 
 
-    // drawX(noseTipX,noseTipY); 
 
-    // drawX(face.keypoints[332].x,face.keypoints[332].y);
-    // drawX(face.keypoints[103].x,face.keypoints[103].y);
 
 
     /*
@@ -315,3 +428,28 @@ function drawPoints(feature) {
   pop()
 
 }
+
+
+
+
+
+
+
+
+
+
+    // drawPoints(face.leftEye);
+    // drawPoints(face.leftEyebrow);
+    // drawPoints(face.lips);
+    // drawPoints(face.rightEye);
+    // drawPoints(face.rightEyebrow);
+
+    // drawX(rightEyeCenterX,rightEyeCenterY);
+    // drawX(leftEyeCenterX,leftEyeCenterY);
+
+
+    // drawX(noseTipX,noseTipY); 
+
+    // drawX(face.keypoints[332].x,face.keypoints[332].y);
+    // drawX(face.keypoints[103].x,face.keypoints[103].y);
+
