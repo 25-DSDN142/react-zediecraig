@@ -17,13 +17,15 @@ let head3;
 let nose3;
 let scene3;
 
-let isMouthOpen = false;
+// CAT FOUR
+let head4;
+let nose4;
+let scene4;
+let paw4;
 
+  // OTHER
 
-
-
-
-
+ let isMouthOpen = false;
 
 // ----=  Faces  =----
 /* load images here */
@@ -36,8 +38,6 @@ function prepareInteraction() {
   righteyebrow = loadImage('/images/eyebrowright.png');
   lefteyebrow = loadImage('/images/eyebrowleft.png');
 
-
-
   // CAT TWO 
   head2 = loadImage('/images/face2.png');
   scene2 = loadImage('/images/backround2.png');
@@ -48,11 +48,11 @@ function prepareInteraction() {
   nose3 = loadImage('/images/nose3.png');
   scene3 = loadImage('/images/background3.png');
 
-  //   if (d < 10) {
-  //   isMouthOpen = false;
-  // } else {
-  //   isMouthOpen = true;
-
+  //Cat FOUR
+  head4 = loadImage('/images/face4.png');
+  nose4 = loadImage('/images/nose4.png');
+  scene4 = loadImage('/images/background4.png');
+  paw4 = loadImage ('/image/paw4.png')
 }
 
 
@@ -66,6 +66,9 @@ function drawInteraction(faces, hands) {
     if (showKeypoints) {
       drawPoints(face)
     }
+
+  
+     
 
     /*
     Once this program has a face, it knows some things about it.
@@ -123,7 +126,7 @@ function drawInteraction(faces, hands) {
 strokeWeight(0)
 stroke(0)
 
-// CAT ONE
+// CAT ONE - orange silly
 if (key === 'a'){
 
   image(scene,0, 0)
@@ -142,7 +145,7 @@ imageMode(CENTER)
    
 //HEAD
 image(head,faceCenterX, faceCenterY-50,700,500)
-
+pop();
 strokeWeight(0)
 stroke(0)
 
@@ -181,21 +184,19 @@ stroke(0)
     ellipse(rightEyeCenterX-30, rightEyeCenterY+20, rightEyeWidth/2, rightEyeHeight);
 
 //NOSE 
-image(nose, noseTipX, noseTipY+50, 150, 150);
+image(nose, noseTipX-150/2, noseTipY+50, 150, 150);
 
 
-// eyebrows
-image(lefteyebrow,rightEyebrowCenterX-70, rightEyebrowCenterY)
-image(righteyebrow,leftEyebrowCenterX+40, leftEyebrowCenterY)
-
-//  checkIfMouthOpen(face);
-//     if (isMouthOpen) {
-//       text("meow", face.keypoints[287].x, face.keypoints[287].y)
-//     }
-
+ checkIfMouthOpen(face);
+    if (isMouthOpen) {
+      fill(0);
+      textSize(40);
+      text("meow", face.keypoints[287].x+200, face.keypoints[287].y) // 287 is corner of mouth 
+    text("meow", face.keypoints[287].x+150, face.keypoints[287].y+100)
+    }
 }
 
-// CAT TWO
+// CAT TWO - grey grumpy
 if (key === 's'){
 
 image(scene2,0, 0,1280,720)
@@ -220,7 +221,7 @@ image(head2,faceCenterX, faceCenterY-50,700,500)
 
 strokeWeight(0)
 stroke(0)
-// pop();
+pop();
 
 //EYES
 stroke(0)
@@ -259,9 +260,18 @@ ellipse(rightEyeCenterX-30, rightEyeCenterY+15, rightEyeWidth/2, rightEyeHeight)
 image(nose2, noseTipX-80, noseTipY+10, 150, 100);
 
 
+ checkIfMouthOpen(face);
+    if (isMouthOpen) {
+  fill(255);
+  strokeWeight(4);
+      textSize(40);
+      text("MEOWW", face.keypoints[287].x+150, face.keypoints[287].y) // 287 is corner of mouth 
+    text("MEOW", face.keypoints[287].x+300, face.keypoints[287].y+50)
+    }
+
 }
 
-//CAT THREE
+//CAT THREE - white 
 if (key === 'd'){
 
 image(scene3,0,0)
@@ -318,31 +328,35 @@ stroke(0)
 //nose 
 image(nose3, noseTipX, noseTipY+50, 150, 150);
 
-//  checkIfMouthOpen(face);
-//     if (isMouthOpen) {
-//       text("meow", face.keypoints[287].x, face.keypoints[287].y)
-//     }
+
+ checkIfMouthOpen(face);
+    if (isMouthOpen) {
+
+      textSize(40);
+        fill(235,0,0);
+      strokeWeight(4);
+      text("meowww", face.keypoints[287].x+200, face.keypoints[287].y) // 287 is corner of mouth 
+    text("meowww", face.keypoints[287].x+150, face.keypoints[287].y+100)
+    }
 
 }
 
-
-
-//CAT THREE
+//CAT FOUR - brown cutie
 if (key === 'f'){
 
-image(scene3,0,0)
+image(scene4,0,0)
 push();
 imageMode(CENTER)
 //BODY
-   fill(220)
+   fill(104, 66, 33)
     ellipse(faceCenterX, faceCenterY+400, faceWidth*2.0, faceheight*2.10);
 
-   fill(245)
+   fill(119, 79, 40)
     ellipse(faceCenterX, faceCenterY+400, faceWidth*1.9, faceheight*2);
 
    
 //HEAd
-image(head3,faceCenterX, faceCenterY-50,700,500)
+image(head4,faceCenterX, faceCenterY-50,700,500)
 
 strokeWeight(0)
 stroke(0)
@@ -360,12 +374,12 @@ stroke(0)
     ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.5, rightEyeHeight*5);
 
  //coloured eyes shadow
-   fill(78, 169, 204)
+   fill(171, 115, 67)
     ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1.1, leftEyeHeight*3);
     ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1.1, rightEyeHeight*3);
 
 //coloured eyes
-   fill(89, 185, 222)
+   fill(179, 126, 80)
     ellipse(leftEyeCenterX+20, leftEyeCenterY+30, leftEyeWidth*1, leftEyeHeight*2.5);
     ellipse(rightEyeCenterX-30, rightEyeCenterY+30, rightEyeWidth*1, rightEyeHeight*2.5);
 
@@ -382,18 +396,23 @@ stroke(0)
     ellipse(rightEyeCenterX-10, rightEyeCenterY+20, rightEyeWidth/2, rightEyeHeight);
 
 //nose 
-image(nose3, noseTipX, noseTipY+50, 150, 150);
+image(nose4, noseTipX, noseTipY+50, 150, 150);
 
-//  checkIfMouthOpen(face);
-//     if (isMouthOpen) {
-//       text("meow", face.keypoints[287].x, face.keypoints[287].y)
-//     }
+
+ checkIfMouthOpen(face);
+    if (isMouthOpen) {
+
+      textSize(40);
+        fill(0);
+        stroke(0);
+  strokeWeight(4);
+      text("meow", face.keypoints[287].x+200, face.keypoints[287].y) // 287 is corner of mouth 
+    text("meow", face.keypoints[287].x+150, face.keypoints[287].y+100)
+    }
+
+    image(paw4, middleFingerMcpX, middleFingerMcpY,300)
 
 }
-
-
-
-
 
     /*
     Stop drawing on the face here
@@ -404,52 +423,24 @@ image(nose3, noseTipX, noseTipY+50, 150, 150);
   // You can make addtional elements here, but keep the face drawing inside the for loop. 
 }
 
-function drawX(X, Y) {
-  push()
+function checkIfMouthOpen(face) {
 
-  strokeWeight(15)
-  line(X - 20, Y - 20, X + 20, Y + 20)
-  line(X - 20, Y + 20, X + 20, Y - 20)
+  let upperLip = face.keypoints[13]
+  let lowerLip = face.keypoints[14]
+ 
 
-  pop()
-}
-
-
-// This function draw's a dot on all the keypoints. It can be passed a whole face, or part of one. 
-function drawPoints(feature) {
-
-  push()
-  for (let i = 0; i < feature.keypoints.length; i++) {
-    let element = feature.keypoints[i];
-    noStroke();
-    fill(0, 255, 0);
-    circle(element.x, element.y, 5);
+  let d = dist(upperLip.x, upperLip.y, lowerLip.x, lowerLip.y);
+  //console.log(d)
+  if (d < 10) {
+    isMouthOpen = false;
+  } else {
+    isMouthOpen = true;
   }
-  pop()
+
+
 
 }
 
 
 
-
-
-
-
-
-
-
-    // drawPoints(face.leftEye);
-    // drawPoints(face.leftEyebrow);
-    // drawPoints(face.lips);
-    // drawPoints(face.rightEye);
-    // drawPoints(face.rightEyebrow);
-
-    // drawX(rightEyeCenterX,rightEyeCenterY);
-    // drawX(leftEyeCenterX,leftEyeCenterY);
-
-
-    // drawX(noseTipX,noseTipY); 
-
-    // drawX(face.keypoints[332].x,face.keypoints[332].y);
-    // drawX(face.keypoints[103].x,face.keypoints[103].y);
 
