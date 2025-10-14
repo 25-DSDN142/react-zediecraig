@@ -21,7 +21,7 @@ let scene3;
 let head4;
 let nose4;
 let scene4;
-let paw4;
+
 
   // OTHER
 
@@ -52,7 +52,6 @@ function prepareInteraction() {
   head4 = loadImage('/images/face4.png');
   nose4 = loadImage('/images/nose4.png');
   scene4 = loadImage('/images/background4.png');
-  paw4 = loadImage ('/image/paw4.png')
 }
 
 
@@ -131,6 +130,7 @@ if (key === 'a'){
 
   image(scene,0, 0)
 push();
+
 imageMode(CENTER)
 //BODY
    fill(186, 142, 93)
@@ -409,9 +409,6 @@ image(nose4, noseTipX, noseTipY+50, 150, 150);
       text("meow", face.keypoints[287].x+200, face.keypoints[287].y) // 287 is corner of mouth 
     text("meow", face.keypoints[287].x+150, face.keypoints[287].y+100)
     }
-
-    image(paw4, middleFingerMcpX, middleFingerMcpY,300)
-
 }
 
     /*
