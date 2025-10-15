@@ -333,7 +333,7 @@ image(nose3, noseTipX, noseTipY+50, 150, 150);
     if (isMouthOpen) {
 
       textSize(40);
-        fill(235,0,0);
+        fill(255, 158, 200);
       strokeWeight(4);
       text("meowww", face.keypoints[287].x+200, face.keypoints[287].y) // 287 is corner of mouth 
     text("meowww", face.keypoints[287].x+150, face.keypoints[287].y+100)
