@@ -4,8 +4,6 @@ let eyebrow;
 let head;
 let scene;
 let nose;
-let righteyebrow;
-let lefteyebrow;
 
 // CAT TWO
 let head2;
@@ -22,21 +20,17 @@ let head4;
 let nose4;
 let scene4;
 
+// OTHER
+let isMouthOpen = false;
 
-  // OTHER
 
- let isMouthOpen = false;
 
-// ----=  Faces  =----
-/* load images here */
 function prepareInteraction() {
 
   // CAT ONE
   head = loadImage('/images/face.png');
   scene = loadImage('/images/background.png');
   nose = loadImage('/images/nose.png');
-  righteyebrow = loadImage('/images/eyebrowright.png');
-  lefteyebrow = loadImage('/images/eyebrowleft.png');
 
   // CAT TWO 
   head2 = loadImage('/images/face2.png');
@@ -58,28 +52,15 @@ function prepareInteraction() {
 function drawInteraction(faces, hands) {
 
 
-  // for loop to capture if there is more than one face on the screen. This applies the same process to all faces. 
+  // for loop to capture if there is more than one face on the screen.
   for (let i = 0; i < faces.length; i++) {
-    let face = faces[i]; // face holds all the keypoints of the face\
+    let face = faces[i]; // face holds all the keypoints of the face
     console.log(face);
     if (showKeypoints) {
       drawPoints(face)
     }
 
   
-     
-
-    /*
-    Once this program has a face, it knows some things about it.
-    This includes how to draw a box around the face, and an oval. 
-    It also knows where the key points of the following parts are:
-     face.leftEye
-     face.leftEyebrow
-     face.lips
-     face.rightEye
-     face.rightEyebrow
-    */
-    // Here are some variables you may like to use. 
     // Face basics
     let faceCenterX = face.faceOval.centerX;
     let faceCenterY = face.faceOval.centerY;
@@ -90,17 +71,6 @@ function drawInteraction(faces, hands) {
     let leftEyeCenterY = face.leftEye.centerY;
     let leftEyeWidth = face.leftEye.width;
     let leftEyeHeight = face.leftEye.height;
-    // Left eyebrow
-    let leftEyebrowCenterX = face.leftEyebrow.centerX;
-    let leftEyebrowCenterY = face.leftEyebrow.centerY;
-    let leftEyebrowWidth = face.leftEyebrow.width;
-    let leftEyebrowHeight = face.leftEyebrow.height;
-
-    // Lips
-    let lipsCenterX = face.lips.centerX;
-    let lipsCenterY = face.lips.centerY;
-    let lipsWidth = face.lips.width;
-    let lipsHeight = face.lips.height;
 
     // Right eye
     let rightEyeCenterX = face.rightEye.centerX;
@@ -108,19 +78,8 @@ function drawInteraction(faces, hands) {
     let rightEyeWidth = face.rightEye.width;
     let rightEyeHeight = face.rightEye.height;
 
-    // Right eyebrow
-    let rightEyebrowCenterX = face.rightEyebrow.centerX;
-    let rightEyebrowCenterY = face.rightEyebrow.centerY;
-    let rightEyebrowWidth = face.rightEyebrow.width;
-    let rightEyebrowHeight = face.rightEyebrow.height;
-
     let noseTipX = face.keypoints[4].x;
     let noseTipY = face.keypoints[4].y;
-    /*
-    Start drawing on the face here
-    */
-
-
 
 strokeWeight(0)
 stroke(0)
@@ -411,15 +370,10 @@ image(nose4, noseTipX, noseTipY+50, 150, 150);
     }
 }
 
-    /*
-    Stop drawing on the face here
-    */
     pop();
   }
-  //------------------------------------------------------
-  // You can make addtional elements here, but keep the face drawing inside the for loop. 
-}
 
+}
 function checkIfMouthOpen(face) {
 
   let upperLip = face.keypoints[13]
@@ -427,7 +381,6 @@ function checkIfMouthOpen(face) {
  
 
   let d = dist(upperLip.x, upperLip.y, lowerLip.x, lowerLip.y);
-  //console.log(d)
   if (d < 10) {
     isMouthOpen = false;
   } else {
